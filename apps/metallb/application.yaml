@@ -20,6 +20,9 @@ spec:
   - repoURL: https://github.com/Costel03/metallb.git
     targetRevision: main
     ref: values
+  - repoURL: https://github.com/Costel03/metallb.git
+    targetRevision: main
+    path: helm/metallb/templates
 
   destination:
     server: https://kubernetes.default.svc
