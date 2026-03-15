@@ -10,10 +10,16 @@ metadata:
 spec:
   project: default
 
-  source:
-    repoURL: https://github.com/Costel03/metallb.git
+  sources:
+  - repoURL: https://metallb.github.io/metallb
+    chart: metallb
+    targetRevision: 0.14.9
+    helm:
+      valueFiles:
+      - $values/helm/metallb/values.yaml
+  - repoURL: https://github.com/Costel03/metallb.git
     targetRevision: main
-    path: helm/metallb
+    ref: values
 
   destination:
     server: https://kubernetes.default.svc
