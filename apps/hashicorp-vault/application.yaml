@@ -20,6 +20,9 @@ spec:
   - repoURL: https://github.com/Costel03/hashicorp-vault.git
     targetRevision: main
     ref: values
+  - repoURL: https://github.com/Costel03/hashicorp-vault.git
+    targetRevision: main
+    path: external-secrets
 
   destination:
     server: https://kubernetes.default.svc
