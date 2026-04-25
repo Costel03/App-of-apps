@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: harbor
+  name: container-registry
   namespace: argocd
   annotations:
     argocd.argoproj.io/sync-wave: "3"
@@ -11,12 +11,12 @@ spec:
   project: default
 
   sources:
-  - repoURL: https://helm.goharbor.io
-    chart: harbor
-    targetRevision: 1.15.0
+  - repoURL: https://zotregistry.dev/helm-charts
+    chart: zot
+    targetRevision: 0.1.60
     helm:
       valueFiles:
-      - $values/helm/harbor/values.yaml
+      - $values/helm/zot/values.yaml
   - repoURL: https://github.com/Costel03/container-registry-k8s.git
     targetRevision: main
     ref: values
@@ -26,7 +26,7 @@ spec:
 
   destination:
     server: https://kubernetes.default.svc
-    namespace: harbor
+    namespace: container-registry
 
   syncPolicy:
     automated:
